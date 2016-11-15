@@ -1,0 +1,74 @@
+Math Mode   : mathjax
+
+aligned { replace:"~Math&nl;\begin{aligned}&nl;&source;&nl;\end{aligned}&nl;~" }
+alignedequation { replace:"~Equation&nl;\begin{aligned}&nl;&source;&nl;\end{aligned}&nl;~" }
+
+~MathDefs
+\newcommand\lder[1]{\frac{D{#1}}{Dt}}
+\newcommand\xder[1]{\frac{\partial{#1}}{\partial x}}
+~
+
+# Lare1D code writing
+
+## Language choice
+
+Originally started using Python with a view to using Cython, but realised that it may be a little progressive. Same with using Julia. Using C++ instead and may port over to Cython at some point as an exercise/tutorial writing opportunity. 1D though so no need to involve threading or MPI/openMP.
+
+### Advantages to C++
+* Fast 
+* Modern constructs compared to fortran
+* More readable than Fortran
+* I know it...
+
+### Disadvantages to C++
+* Still more clunky/boilerplate code than Python
+* Iteration cycle reasonably slow
+* Unit testing a little annoying to get started but easy once established
+
+### Python for analysis
+* Quick to write/change/iterate scripts for analysis once variable importing/exporting in place
+* Fast enough for decent analysis & can be improved through Cython or other c impls
+
+### Code problems and possible preventions (AKA HPC code smells)
+* Off by one errors; match equations to code so that reading code === reading equations
+* Unit testing small simple parts (like derivatives) to consistenly ensure fewer mistakes in tested parts
+* Difficulty - Equations hard to unit test, humans can't do so well. Best strategy seems to be match eqns & double check everything
+
+## Lagrangian-Remap (LARE)
+
+### Advantages
+* Deals with shocks well (when flux limiters + artificial shock viscosity added)
+* Gives comparable results to Roe solvers
+* Due to Lagrangian step, equation solving is much simpler than Eulerian equiv
+
+### Disadvantages
+* Complicated two step process
+* BUT once remap step solved (& just tedious geometrical problem), solved forever (physics invariant)
+
+### Steps
+* Predictor
+* Corrector
+* Remap
+
+## Setup
+### Equations
+In Lagrangian form, the 1D Euler equations are written as
+~ Equation
+\lder{\rho} + \rho\xder{u} = 0,
+~
+~ Equation
+\lder{u} + \frac{1}{\rho}\xder{p} = 0,
+~
+~ Equation
+\lder{\varepsilon} + \frac{p}{\rho}\xder{u} = 0,
+~
+where $\rho$ is the density, $u$ is the fluid velocity, $p$ is the pressire and $\varepsilon$ is the specific internal energy density. Use has been made of the Lagrangian or material derivative, $D/Dt = \partial/\partial t + u\partial/\partial x$.
+
+### Grid
+The grid on which the variables are defined is staggered, that is the velocity is defined at the boundary of the cells, with all other variables being defined at the cell centres. This is a strategy used to avoid the checkerboard instability, which arises when the pressure and velocity data points are defined on the same grid.
+
+## Predictor step
+
+~ Math
+
+~
