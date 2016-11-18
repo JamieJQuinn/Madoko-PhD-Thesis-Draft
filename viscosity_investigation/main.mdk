@@ -1,0 +1,21 @@
+Package: jamie
+Math Mode: mathjax
+
+# LARE manual notes
+
+Viscous stress is a measure of how a fluids internal frictional forces affect the flow of momentum through the fluid. Like the elastic stress, the response of a material to some deformation, the viscous stress is related to the strain. Unlike the elastic stress, however, which relates directly to the strain itself, the viscous stress is a direct response to the rate of strain, that is how fast the deformation is occurring. 
+
+The viscous stress tensor is introduced into momentum balance like so,
+
+~ Math
+\rho\left( \frac{Dv}{Dt} \right)_i = \frac{\partial \sigma_{ij}}{\partial x_j} = (\nabla \cdot \sigma)_i,
+~
+and into the energy balance similarly,
+~Math
+\rho\frac{D\varepsilon}{Dt} = \varepsilon_{ij}\sigma_{ij}.
+~
+
+For Newtonian fluids, viscous stress $\propto$ rate of strain, that is ,
+~Math
+
+~
