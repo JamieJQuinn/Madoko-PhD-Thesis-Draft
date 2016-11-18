@@ -65,10 +65,20 @@ In Lagrangian form, the 1D Euler equations are written as
 where $\rho$ is the density, $u$ is the fluid velocity, $p$ is the pressire and $\varepsilon$ is the specific internal energy density. Use has been made of the Lagrangian or material derivative, $D/Dt = \partial/\partial t + u\partial/\partial x$.
 
 ### Grid
-The grid on which the variables are defined is staggered, that is the velocity is defined at the boundary of the cells, with all other variables being defined at the cell centres. This is a strategy used to avoid the checkerboard instability, which arises when the pressure and velocity data points are defined on the same grid.
+The grid on which the variables are defined is staggered, that is the velocity is defined at the boundary of the cells, with all other variables being defined at the cell centres. This is a strategy used to avoid the checkerboard instability, which arises when the pressure and velocity data points are defined on the same grid TODO cite?. Due to the staggered grid, some care has to be taken to ensure calculations involving mixtures of velocity and another variables are interpolated properly, to avoid numerical leaking of conserved quantities.
+
+A natural method of taking the first derivatives is to use a simple first order finite-difference scheme. Due to the staggered grid, we we can define the derivative of the velocity at the centre of a cell to be the finite difference of the velocity at the boundaries,
+
+~ Equation
+\xder{u}_i = \frac{u_i - u_{i-1}}{dxb_i},
+~
+
+and similarly we can define the derivative of density (or any of the other cell-centered variables) at the boundaries,
+
+~ Equation
+\xder{\rho}_i = \frac{\rho_i - \rho_{i-1}}{dxc_i},
+~
+noting that the change in $x$ is now given as $dxc_i$.
+
 
 ## Predictor step
-
-~ Math
-
-~
