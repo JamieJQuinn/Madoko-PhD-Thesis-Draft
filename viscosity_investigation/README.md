@@ -6,8 +6,8 @@ This is an investigation into the nature of viscosity in general and how it rela
 
 ## TODO
 [x] Read viscosity section in LARE manual
-[] Get to grips with stress tensor
-[] Calc divergence of Newtonian stress tensor in compressible fluid
+[x] Get to grips with stress tensor
+[x] Calc divergence of Newtonian stress tensor in compressible fluid
 [] Investigate implementation of viscosity in LARE
 [] Write report detailing
   [] viscosity tensor

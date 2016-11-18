@@ -3,19 +3,57 @@ Math Mode: mathjax
 
 # LARE manual notes
 
-Viscous stress is a measure of how a fluids internal frictional forces affect the flow of momentum through the fluid. Like the elastic stress, the response of a material to some deformation, the viscous stress is related to the strain. Unlike the elastic stress, however, which relates directly to the strain itself, the viscous stress is a direct response to the rate of strain, that is how fast the deformation is occurring. 
+## Viscous Stress
+### Introduction
+Viscous stress is a meaure of how a fluids internal frictional forces affect the flow of momentum through the fluid. The way in which the viscous stress depends on the rate of strain, that is the rate at which some deformation occurs, and the way in which this stress depends on other variables like temperature and magnetic field, is entirely goverened by the specific fluid in question. Some fluids, water being a good example, behave in a *Newtonian* fashion, where the viscous stress is linearly proportional to the rate of strain. Other fluids, such as ketchup, are examples of *shear-thinning* fluids, where the higher the rate of strain, that is the faster a deformation occurs, the less viscous the fluid behaves. There are of course many other non-Newtonian materials each with interesting properties arising from the nature of the viscous stress.
 
-The viscous stress tensor is introduced into momentum balance like so,
-
+### The Viscous Stress Tensor
+The viscous stress tensor $\sigma$ is introduced into momentum balance as,
 ~ Math
-\rho\left( \frac{Dv}{Dt} \right)_i = \frac{\partial \sigma_{ij}}{\partial x_j} = (\nabla \cdot \sigma)_i,
+\rho\left( \frac{Dv}{Dt} \right)_i
+= \frac{\partial \sigma_{ij}}{\partial x_j},
 ~
-and into the energy balance similarly,
+and into the energy balance as,
 ~Math
-\rho\frac{D\varepsilon}{Dt} = \varepsilon_{ij}\sigma_{ij}.
+\rho\frac{D\varepsilon}{Dt} = \varepsilon_{ij}\sigma_{ij},
+~
+where we have made use of the Einstein summation convention that repeated indices in a term indicate summation,
+~Math
+x_{i}y_{i} \equiv \sum_{i=1}^{3} x_{i}y_{i}.
 ~
 
-For Newtonian fluids, viscous stress $\propto$ rate of strain, that is ,
+### Newtonian Fluids
+For Newtonian fluids, viscous stress $\propto$ rate of strain, so for a compressible fluid, the viscous stress tensor is given by
 ~Math
-
+\sigma_{ij} = 2\nu(E_{ij} - \frac{1}{3}\delta_{ij} \nabla \cdot \vec{v}),
 ~
+where $\sigma_{ij}$ is the $i, j$-th component of the viscous stress tensor, $\nu$ is the dynamic viscosity, $E_{ij}$ is the $i, j$-th component of the deformation tensor, $\delta_{ij}$ is the Kronecker delta, and $\vec{v}$ is the fluid velocity.
+
+The deformation tensor is given by
+~Math
+E = \frac{1}{2}\left( \frac{\partial v_i}{\partial x_{j}} + \frac{\partial v_j}{\partial x_i} \right)
+~
+
+To calculate the divergence, we investigate a single component of the viscous contribution to the momentum balance,
+~Equation {#div_viscous_stress}
+\frac{\partial\sigma_{ij}}{\partial x_j} = 2\nu\frac{\partial}{\partial x_j}\left(E_{ij} - \frac{1}{3}\delta_{ij}\nabla\cdot\vec{v}\right).
+~
+Differentiating each term separately, it can be shown that
+~Math
+\frac{\partial E_{ij}}{\partial x_j} = \frac{1}{2}\left(\nabla^{2}v_i + \frac{\partial}{\partial x_i}(\nabla \cdot \vec{v})\right),
+~
+and
+~Math
+\frac{\partial }{\partial x_j}\delta_{ij}\nabla \cdot \vec{v} = \frac{\partial}{\partial x_i}(\nabla \cdot \vec{v}).
+~
+
+Subbing these back into equation [#div_viscous_stress],
+~Math
+\frac{\partial\sigma_{ij}}{\partial x_j} = \nu\left(\frac{1}{3}\frac{\partial}{\partial x_i}(\nabla \cdot \vec{v}) + \nabla^2 v_i \right),
+~
+that is,
+~Math
+\nabla \cdot \sigma = \frac{\nu}{3}\nabla(\nabla \cdot \vec{v}) + \nu\nabla^2 \vec{v}.
+~
+
+Physically, these two terms represent different ways in which the internal frictional forces can manifest themselves. The first term involving $\nabla(\nabla \cdot \vec{v})$ is a resistance to compression or expansion. In the incompressible limit, where $\nabla\cdot\vec{v} \rightarrow 0$ this term would disappearm as expected. The second term involving $\nabla^2 \vec{v}$ looks very much like a diffusion term and in fact can represent the diffusion of momentum through the fluid through neighbouring layers of fluid.
