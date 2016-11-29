@@ -1,0 +1,2 @@
+# MacTaggarts Log
+
