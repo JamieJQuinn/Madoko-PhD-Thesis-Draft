@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <meta name="generator" content="Madoko, version 1.0.3" />
+  <meta name="viewport" content="initial-scale=1.0" />
+  <style type="text/css"  class="link">
+  /*# sourceURL=madoko.css */
+  
+  .madoko .toc>.tocblock .tocblock .tocblock {
+    margin-left: 2.25em;
+  }
+  .madoko .toc>.tocblock .tocblock {
+    margin-left: 1.5em;
+  }
+  .madoko .toc-contents>.tocblock>.tocitem {
+    font-weight: bold;
+  }
+  .madoko .toc {
+    margin-top: 1em;
+  }
+  .madoko p.para-continue {
+    margin-bottom: 0pt;
+  }
+  .madoko .para-block+p {
+    margin-top: 0pt;
+  }
+  .madoko ul.para-block, .madoko ol.para-block {
+    margin-top: 0pt;
+    margin-bottom: 0pt;
+  }
+  .madoko ul.para-end, .madoko ol.para-end {
+    margin-bottom: 1em;
+  }
+  .madoko dl {
+    margin-left: 0em;
+  }
+  .madoko blockquote {
+    font-style: italic;
+  }
+  .madoko a.localref {
+    text-decoration: none;
+  }
+  .madoko a.localref:hover {
+    text-decoration: underline;
+  }
+  .madoko .footnotes {
+    font-size: smaller;
+    margin-top: 2em;
+  }
+  .madoko .footnotes hr {
+    width: 50%;
+    text-align: left;
+  }
+  .madoko .footnote { 
+    margin-left: 1em;
+  }
+  .madoko .footnote-before {
+    margin-left: -1em;
+    width: 1em;
+    display: inline-block;
+  }
+  .madoko .align-center, .madoko .align-center>p {
+    text-align: center !important;
+  }
+  .madoko .align-center pre {
+    text-align: left;
+  }
+  .madoko .align-center>* {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .madoko .align-left, .madoko .align-left>p {
+    text-align: left !important;
+  }
+  .madoko .align-left>* {
+    margin-left: 0pt !important;
+    margin-right: auto !important;
+  }
+  .madoko .align-right, .madoko .align-right>p {
+    text-align: right !important;
+  }
+  .madoko .align-right>* {
+    margin-left: auto !important;
+    margin-right: 0pt !important;
+  }
+  .madoko .align-center>table,
+  .madoko .align-left>table,
+  .madoko .align-right>table {
+    text-align: left !important;
+  }
+  .madoko .equation-before {
+    float: right;
+  }
+  .madoko .bibitem {
+    font-size: smaller;
+  }
+  .madoko .bibsearch {
+    font-size: x-small;
+    text-decoration:none;
+    color: black;
+    font-family: "Segoe UI Symbol", Symbola, serif;
+  }
+  .madoko .block, .madoko .figure, .madoko .bibitem, .madoko .equation, .madoko div.math {
+    margin-top: 1ex;
+    margin-bottom: 1ex;
+  }
+  .madoko .figure {
+    padding: 0.5em;
+    margin-left: 0pt;
+    margin-right: 0pt;
+  }
+  .madoko .hidden {
+    display: none;
+  }
+  .madoko .invisible {
+    visibility: hidden;
+  }
+  .madoko.preview .invisible {
+    visibility: visible;
+    opacity: 0.5;
+  }
+  .madoko code.code, .madoko span.code {
+    white-space: pre-wrap;
+  }
+  .madoko hr, hr.madoko {
+    border: none;
+    border-bottom: black solid 1px;
+    margin-bottom: 0.5ex;
+  }
+  .madoko .framed>*:first-child {
+    margin-top: 0pt;
+  }
+  .madoko .framed>*:last-child {
+    margin-bottom: 0pt;
+  }
+  .madoko ul.list-style-type-dash {
+      list-style-type: none !important;
+  }
+  .madoko ul.list-style-type-dash > li:before {
+      content: "\2013"; 
+      position: absolute;
+      margin-left: -1em; 
+  }
+  .madoko table.madoko {
+    border-collapse: collapse;
+  }
+  .madoko td, .madoko th {
+    padding: 0ex 0.5ex;
+    margin: 0pt;
+    vertical-align: top;
+  }
+  .madoko .cell-border-left {
+    border-left: 1px solid black;
+  }
+  .madoko .cell-border-right {
+    border-right: 1px solid black;
+  }
+  .madoko thead>tr:first-child>.cell-line,
+  .madoko tbody:first-child>tr:first-child>.cell-line {
+    border-top: 1px solid black;
+    border-bottom: none;
+  }
+  .madoko .cell-line, .madoko .cell-double-line {
+    border-bottom: 1px solid black;
+    border-top: none;
+  }
+  .madoko .cell-double-line {
+    border-top: 1px solid black;
+    padding-top: 1.5px !important;
+  }
+  .madoko .input-mathpre .MathJax_Display {
+    text-align: left !important;
+  }
+  .madoko div.input-mathpre {
+    text-align: left;
+    margin-top: 1.5ex;
+    margin-bottom: 1ex;
+  }
+  .madoko .math-rendering {
+    color: gray;
+  }
+  .madoko .mathdisplay {
+    text-align: center;
+  }
+  .madoko .pretty table {
+    border-collapse: collapse;
+  }
+  .madoko .pretty td {
+    padding: 0em;
+  }
+  .madoko .pretty td.empty {
+    min-width: 1.5ex;
+  }
+  .madoko .pretty td.expander {
+    width: 100em;
+  }
+  body.madoko, .madoko .serif {
+    font-family: Cambria,"Times New Roman","Liberation Serif","Times",serif;
+  }
+  .madoko .sans-serif {
+    font-family: "Calibri", "Optima", sans-serif;
+  }
+  .madoko .symbol {
+    font-family: "Segoe UI Symbol", Symbola, serif;
+  }
+  body.madoko {  
+    -webkit-text-size-adjust: 100%;       
+    text-rendering: optimizeLegibility;
+  }
+  body.madoko {
+    max-width: 88ex; 
+    margin: 1em auto;
+    padding: 0em 2em;  
+  }
+  body.preview.madoko {
+    padding: 0em 1em;
+  }
+  .madoko p {
+    text-align: justify;
+  }
+  .madoko h1, .madoko h2, .madoko h3, .madoko h4 { 
+    margin-top: 1.22em; 
+    margin-bottom: 1ex;
+  }
+  .madoko h1+p, .madoko h2+p, .madoko h3+p, .madoko h4+p, .madoko h5+p  { 
+    margin-top: 1ex;    
+  }
+  .madoko h5, .madoko h6 { 
+    margin-top: 1ex;
+    font-size: 1em;
+  }
+  .madoko h5 { 
+    margin-bottom: 0.5ex;
+  }
+  .madoko h5 + p {
+    margin-top: 0.5ex;
+  }
+  .madoko h6 { 
+    margin-bottom: 0pt;
+  }
+  .madoko h6 + p {
+    margin-top: 0pt;
+  }
+  .madoko pre, .madoko code, .madoko kbd, .madoko samp, .madoko tt, 
+  .madoko .monospace, .madoko .token-indent, .madoko .reveal pre, .madoko .reveal code, .madoko .email {
+    font-family: Consolas,"Andale Mono WT","Andale Mono",Lucida Console,Monaco,monospace,monospace;
+    font-size: 0.85em;
+  }
+  .madoko pre code, .madoko .token-indent {
+    font-size: 0.95em;
+  }
+  .madoko pre code {
+    font-family: inherit !important;
+  }
+  .madoko ol.linenums li {
+    background-color: white;
+    list-style-type: decimal;
+  }
+  .madoko .remote {
+    background-color: #F0FFF0;
+  }
+  .madoko .remote + * {
+    margin-top: 0pt;
+  }
+  @media print {
+    body.madoko {
+      font-size: 10pt;
+    }
+    @page {
+      margin: 1in 1.5in;
+    }
+  }
+  @media only screen and (max-device-width:1024px) {
+    body.madoko {
+      padding: 0em 0.5em;    
+    }
+    .madoko li {
+      text-align: left;
+    }
+  }
+  
+    </style>
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$']]},
+       TeX: { 
+         Macros: { mathid: ['\\mathit{#1\\hspace{0.1ex}}',1],
+                   mathkw: ['\\mathsf{#1}',1],
+                   mdmathindent: ['\\hspace{#1ex}',1],
+                   mathpre: ['#1',1],
+                 },
+  
+       }
+    });
+    MathJax.Hub.Register.StartupHook('TeX AMSmath Ready',function () { 
+      MathJax.InputJax.TeX.Definitions.environment['mdmathpre'] = ['AMSarray',null,null,null,'l','0em','0em'];
+    });
+  </script>
+  <script type="text/javascript" class="preview"
+    src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  
+  </head>
+<body class="madoko">
+
+<div class="body madoko" style="line-adjust:0"><h2 id="sec-viscous-stress" class="h1" data-line="11" data-heading-depth="1" style="display:block"><span data-line="11"></span><span class="heading-before"><span class="heading-label">1</span>.&#8194;</span><span data-line="11"></span>Viscous Stress</h2><h3 id="sec-introduction" class="h2" data-line="12" data-heading-depth="2" style="display:block"><span data-line="12"></span><span class="heading-before"><span class="heading-label">1.1</span>.&#8194;</span><span data-line="12"></span>Introduction</h3>
+<p class="p noindent" data-line="13"><span data-line="13"></span>Viscous stress is a meaure of how a fluids internal frictional forces affect the flow of momentum through the fluid. The way in which the viscous stress depends on the rate of strain, that is the rate at which some deformation occurs, and the way in which this stress depends on other variables like temperature and magnetic field, is entirely goverened by the specific fluid in question. Some fluids, water being a good example, behave in a <span data-line="13"></span><em class="em-star1">Newtonian</em><span data-line="13"></span> fashion, where the viscous stress is linearly proportional to the rate of strain. Other fluids, such as ketchup, are examples of <span data-line="13"></span><em class="em-star1">shear-thinning</em><span data-line="13"></span> fluids, where the higher the rate of strain, that is the faster a deformation occurs, the less viscous the fluid behaves. There are of course many other non-Newtonian materials each with interesting properties arising from the nature of the viscous stress and its relationship to the strain rate.
+</p><h3 id="sec-the-viscous-stress-tensor" class="h2" data-line="15" data-heading-depth="2" style="display:block"><span data-line="15"></span><span class="heading-before"><span class="heading-label">1.2</span>.&#8194;</span><span data-line="15"></span>The Viscous Stress Tensor</h3>
+<p class="p noindent para-continue" data-line="16"><span data-line="16"></span>The viscous stress tensor <span data-line="16"></span><span class="math-inline">$\sigma$</span><span data-line="16"></span> is introduced into the momentum balance as,
+</p>
+<div id="eqn-viscous-force" class="equation para-block" data-line="17" style="line-adjust:0"><span data-line="17"></span><span class="equation-before"><span class="equation-label">(1)</span></span><span data-line="17"></span>
+
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="18" style="line-adjust:0"><span class="mathdisplay math-display" data-math-full="">\[\rho\frac{Dv_i}{Dt}
+= \frac{\partial \sigma_{ij}}{\partial x_j},
+\]</span></div></div>
+<p class="p noindent para-continued para-continue" data-line="21"><span data-line="21"></span>where <span data-line="21"></span><span class="math-inline">$\rho$</span><span data-line="21"></span> is the density and <span data-line="21"></span><span class="math-inline">$v_i$</span><span data-line="21"></span> is the fluid velocity in the <span data-line="21"></span><span class="math-inline">$i$</span><span data-line="21"></span>-th direction.
+Similarly the tensor contributes to the energy balance in the following way,
+</p>
+<div id="eqn-viscous-heating" class="equation para-block" data-line="23" style="line-adjust:0"><span data-line="23"></span><span class="equation-before"><span class="equation-label">(2)</span></span><span data-line="23"></span>
+
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="24" style="line-adjust:0"><span class="mathdisplay math-display" data-math-full="">\[\rho\frac{D\epsilon}{Dt} = \varepsilon_{ij}\sigma_{ij},
+\]</span></div></div>
+<p class="p noindent para-continued para-continue" data-line="26"><span data-line="26"></span>where <span data-line="26"></span><span class="math-inline">$\epsilon$</span><span data-line="26"></span> is the internal energy, <span data-line="26"></span><span class="math-inline">$\varepsilon$</span><span data-line="26"></span> is the rate of strain tensor, and we have made use of the Einstein summation convention that repeated indices in a term indicate summation,
+</p>
+<div class="math para-block" data-line="27">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="28" style="line-adjust:0"><span class="mathdisplay math-display" data-math-full="">\[x_{i}y_{i} \equiv \sum_{i=1}^{3} x_{i}y_{i}.
+\]</span></div></div><h3 id="sec-newtonian-fluids" class="h2" data-line="31" data-heading-depth="2" style="display:block"><span data-line="31"></span><span class="heading-before"><span class="heading-label">1.3</span>.&#8194;</span><span data-line="31"></span>Newtonian Fluids</h3>
+<p class="p noindent para-continue" data-line="32"><span data-line="32"></span>For Newtonian fluids, viscous stress is directly proportional to the rate of strain so for a compressible fluid, the viscous stress tensor is given by
+</p>
+<div class="math para-block" data-line="33">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="34" style="line-adjust:0"><span class="mathdisplay math-display" data-math-full="">\[\sigma_{ij} = 2\nu(\varepsilon_{ij} - \frac{1}{3}\delta_{ij} \nabla \cdot \vec{v}),
+\]</span></div></div>
+<p class="p noindent para-continued" data-line="36"><span data-line="36"></span>where <span data-line="36"></span><span class="math-inline">$\nu$</span><span data-line="36"></span> is the dynamic viscosity, and <span data-line="36"></span><span class="math-inline">$\delta_{ij}$</span><span data-line="36"></span> is the Kronecker delta.
+</p>
+<p class="p indent para-continue" data-line="38"><span data-line="38"></span>The strain rate tensor is given by
+</p>
+<div class="math para-block" data-line="39">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="40" style="line-adjust:0"><span class="mathdisplay math-display" data-math-full="">\[\varepsilon_{ij} = \frac{1}{2}\left( \frac{\partial v_i}{\partial x_{j}} + \frac{\partial v_j}{\partial x_i} \right).
+\]</span></div></div>
+<p class="p noindent para-continued" data-line="43"><span data-line="43"></span>Sometimes bulk viscosity is included as an extra term <span data-line="43"></span><span class="math-inline">$\mu_{v}\nabla \cdot \vec{v}$</span><span data-line="43"></span> in the viscous stress tensor that influences uniform compression and dilation of a fluid, however it is usually an effect even smaller than conventional viscosity and so here it is neglected (TODO: CITE SOMETHING)
+</p><h4 id="sec-viscous-forces" class="h3" data-line="45" data-heading-depth="3" style="display:block"><span data-line="45"></span><span class="heading-before"><span class="heading-label">1.3.1</span>.&#8194;</span><span data-line="45"></span>Viscous Forces</h4>
+<p class="p noindent para-continue" data-line="46"><span data-line="46"></span>To calculate the force resulting from this form of viscosity, we calculate the <span data-line="46"></span><span class="math-inline">$i$</span><span data-line="46"></span>-th component of the divergence of the viscous stress tensor,
+</p>
+<div id="eqn-div-viscous-stress" class="equation para-block" data-line="47" style="line-adjust:0"><span data-line="47"></span><span class="equation-before"><span class="equation-label">(3)</span></span><span data-line="47"></span>
+
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="48" style="line-adjust:0"><span class="mathdisplay math-display" data-math-full="">\[\frac{\partial\sigma_{ij}}{\partial x_j} = 2\nu\frac{\partial}{\partial x_j}\left(\varepsilon_{ij} - \frac{1}{3}\delta_{ij}\nabla\cdot\vec{v}\right).
+\]</span></div></div>
+<p class="p noindent para-continued para-continue" data-line="50"><span data-line="50"></span>Differentiating each term separately, it can be shown that
+</p>
+<div class="math para-block" data-line="51">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="52" style="line-adjust:0"><span class="mathdisplay math-display" data-math-full="">\[\frac{\partial \varepsilon_{ij}}{\partial x_j} = \frac{1}{2}\left(\nabla^{2}v_i + \frac{\partial}{\partial x_i}(\nabla \cdot \vec{v})\right),
+\]</span></div></div>
+<p class="p noindent para-continued para-continue" data-line="54"><span data-line="54"></span>and
+</p>
+<div class="math para-block" data-line="55">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="56" style="line-adjust:0"><span class="mathdisplay math-display" data-math-full="">\[\frac{\partial }{\partial x_j}\delta_{ij}\nabla \cdot \vec{v} = \frac{\partial}{\partial x_i}(\nabla \cdot \vec{v}).
+\]</span></div></div>
+<p class="p noindent para-continued para-continue" data-line="59"><span data-line="59"></span>Subbing these back into equation<span data-line="59"></span>&nbsp;<a href="#eqn-div-viscous-stress" class="localref" style="target-element:equation"><span class="equation-label">(3)</span></a><span data-line="59"></span>,
+</p>
+<div class="math para-block" data-line="60">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="61" style="line-adjust:0"><span class="mathdisplay math-display" data-math-full="">\[\frac{\partial\sigma_{ij}}{\partial x_j} = \nu\left(\frac{1}{3}\frac{\partial}{\partial x_i}(\nabla \cdot \vec{v}) + \nabla^2 v_i \right),
+\]</span></div></div>
+<p class="p noindent para-continued para-continue" data-line="63"><span data-line="63"></span>that is,
+</p>
+<div class="math para-block" data-line="64">
+<div class="mathdisplay para-block input-math" data-math-full="" data-line="65" style="line-adjust:0"><span class="mathdisplay math-display" data-math-full="">\[\nabla \cdot \sigma = \frac{\nu}{3}\nabla(\nabla \cdot \vec{v}) + \nu\nabla^2 \vec{v}.
+\]</span></div></div>
+<p class="p noindent para-continued" data-line="68"><span data-line="68"></span>Physically, these two terms represent different ways in which the internal frictional forces can manifest themselves. The first term involving <span data-line="68"></span><span class="math-inline">$\nabla(\nabla \cdot \vec{v})$</span><span data-line="68"></span> is a resistance to compression or expansion. In the incompressible limit, where <span data-line="68"></span><span class="math-inline">$\nabla\cdot\vec{v} \rightarrow 0$</span><span data-line="68"></span> this term would disappear as expected. The second term involving <span data-line="68"></span><span class="math-inline">$\nabla^2 \vec{v}$</span><span data-line="68"></span> looks very much like a diffusion term and in fact can represent the diffusion of momentum through the fluid through neighbouring layers of fluid.
+</p><h4 id="sec-mathematical-properties" class="h3" data-line="70" data-heading-depth="3" style="display:block"><span data-line="70"></span><span class="heading-before"><span class="heading-label">1.3.2</span>.&#8194;</span><span data-line="70"></span>Mathematical Properties</h4>
+<p class="p noindent" data-line="71"><span data-line="71"></span>In a Newtonian fluid, since the viscous stress in linearly related to the strain rate, the viscous stress tensor inherits many of the properties of the strain rate tensor.
+</p>
+<p class="p indent" data-line="73"><span data-line="73"></span>The strain rate tensor in this case is easily shown to be symmetric, that is <span data-line="73"></span><span class="math-inline">$\varepsilon_{ij} = \varepsilon_{ji}$</span><span data-line="73"></span>, the symmetry being a consequence of conservation of angular momentum and the isotropy of the fluid. As a result, the Newtonian viscous stress tensor is also symmetric, reducing the number of individually varying components from <span data-line="73"></span><span class="math-inline">$9$</span><span data-line="73"></span> down to <span data-line="73"></span><span class="math-inline">$6$</span><span data-line="73"></span>.
+</p>
+<p class="p indent" data-line="75"><span data-line="75"></span>The viscous stress tensor in the given form is also traceless, that is <span data-line="75"></span><span class="math-inline">$\sigma_{ii} = 0$</span><span data-line="75"></span>. This is to ensure uniform compression or dilation results in zero viscous behaviour. 
+</p><h3 id="sec-lare3d-implementation" class="h2" data-line="77" data-heading-depth="2" style="display:block"><span data-line="77"></span><span class="heading-before"><span class="heading-label">1.4</span>.&#8194;</span><span data-line="77"></span>Lare3D implementation</h3><h4 id="sec-calculation-of-the-viscosity-stress-tensor" class="h3" data-line="78" data-heading-depth="3" style="display:block"><span data-line="78"></span><span class="heading-before"><span class="heading-label">1.4.1</span>.&#8194;</span><span data-line="78"></span>Calculation of the viscosity stress tensor</h4>
+<p class="p noindent" data-line="80"><span data-line="80"></span>In order to try and elucidate what the Lare3D code is doing in implementing Newtonian viscosity I shall split the code up and explain the sections. All of this code occurs inside nested for loops that run over the indices representing the <span data-line="80"></span><span class="math-inline">$x$</span><span data-line="80"></span>, <span data-line="80"></span><span class="math-inline">$y$</span><span data-line="80"></span> and <span data-line="80"></span><span class="math-inline">$z$</span><span data-line="80"></span> directions, as below. The loop also sets some useful variables for the previous and next indices.
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-fortran lang-fortran fortran colorized" data-line="81" data-line-first="82" style="display:block"><code data-line="82">DO iz <span style="color:green">=</span> <span class="constant" style="color:purple">0</span>, nz <span style="color:green">+</span> <span class="constant" style="color:purple">1</span>
+  izm <span style="color:green">=</span> iz <span style="color:green">-</span> <span class="constant" style="color:purple">1</span>
+  izp <span style="color:green">=</span> iz <span style="color:green">+</span> <span class="constant" style="color:purple">1</span>
+  DO iy <span style="color:green">=</span> <span class="constant" style="color:purple">0</span>, ny <span style="color:green">+</span> <span class="constant" style="color:purple">1</span>
+    iym <span style="color:green">=</span> iy <span style="color:green">-</span> <span class="constant" style="color:purple">1</span>
+    iyp <span style="color:green">=</span> iy <span style="color:green">+</span> <span class="constant" style="color:purple">1</span>
+    DO ix <span style="color:green">=</span> <span class="constant" style="color:purple">0</span>, nx <span style="color:green">+</span> <span class="constant" style="color:purple">1</span>
+      ixm <span style="color:green">=</span> ix <span style="color:green">-</span> <span class="constant" style="color:purple">1</span>
+      ixp <span style="color:green">=</span> ix <span style="color:green">+</span> <span class="constant" style="color:purple">1</span></code></pre>
+<p class="p noindent para-continued" data-line="93"><span data-line="93"></span>The following code finds the velocity in the <span data-line="93"></span><span class="math-inline">$x$</span><span data-line="93"></span> direction, <span data-line="93"></span><code class="code code1 language-fortran lang-fortran fortran colorized">dvxdx</code><span data-line="93"></span>, at the centre of a cell by extrapolating values at the boundaries.
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-fortran lang-fortran fortran colorized" data-line="94" data-line-first="95" style="display:block"><code data-line="95">vxb  <span style="color:green">=</span> (vx(ix ,iy ,iz ) <span style="color:green">+</span> vx(ix ,iym,iz ) <span style="color:red">&amp;</span>
+    <span style="color:green">+</span>   vx(ix ,iy ,izm) <span style="color:green">+</span> vx(ix ,iym,izm)) <span style="color:green">*</span> <span class="constant" style="color:purple">0.25</span>_num
+
+vxbm <span style="color:green">=</span> (vx(ixm,iy ,iz ) <span style="color:green">+</span> vx(ixm,iym,iz ) <span style="color:red">&amp;</span>
+    <span style="color:green">+</span>   vx(ixm,iy ,izm) <span style="color:green">+</span> vx(ixm,iym,izm)) <span style="color:green">*</span> <span class="constant" style="color:purple">0.25</span>_num
+
+dvxdx <span style="color:green">=</span> (vxb <span style="color:green">-</span> vxbm) <span style="color:green">/</span> dxb(ix)</code></pre>
+<p class="p noindent para-continued" data-line="103"><span data-line="103"></span>Similar code is used to find the other derivatives of <span data-line="103"></span><span class="math-inline">$v_x$</span><span data-line="103"></span>, <span data-line="103"></span><span class="math-inline">$v_y$</span><span data-line="103"></span> and <span data-line="103"></span><span class="math-inline">$v_z$</span><span data-line="103"></span> with respect to <span data-line="103"></span><span class="math-inline">$x$</span><span data-line="103"></span>, <span data-line="103"></span><span class="math-inline">$y$</span><span data-line="103"></span> and <span data-line="103"></span><span class="math-inline">$z$</span><span data-line="103"></span>.
+</p>
+<p class="p indent" data-line="105"><span data-line="105"></span>The values for the strain rate tensor, respresented as <span data-line="105"></span><code class="code code1 language-fortran lang-fortran fortran colorized">sxy</code><span data-line="105"></span> for the <span data-line="105"></span><span class="math-inline">$xy$</span><span data-line="105"></span> component, are given by the following code. Note that there are only six components due to the symmetric nature of the tensor.
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-fortran lang-fortran fortran colorized" data-line="106" data-line-first="107" style="display:block"><code data-line="107">sxy <span style="color:green">=</span> dvxy <span style="color:green">*</span> <span class="constant" style="color:purple">0.5</span>_num
+sxz <span style="color:green">=</span> dvxz <span style="color:green">*</span> <span class="constant" style="color:purple">0.5</span>_num
+syz <span style="color:green">=</span> dvyz <span style="color:green">*</span> <span class="constant" style="color:purple">0.5</span>_num
+sxx <span style="color:green">=</span> (<span class="constant" style="color:purple">2.0</span>_num <span style="color:green">*</span> dvxdx <span style="color:green">-</span> dvydy <span style="color:green">-</span> dvzdz) <span style="color:green">*</span> third
+syy <span style="color:green">=</span> (<span class="constant" style="color:purple">2.0</span>_num <span style="color:green">*</span> dvydy <span style="color:green">-</span> dvxdx <span style="color:green">-</span> dvzdz) <span style="color:green">*</span> third
+szz <span style="color:green">=</span> (<span class="constant" style="color:purple">2.0</span>_num <span style="color:green">*</span> dvzdz <span style="color:green">-</span> dvxdx <span style="color:green">-</span> dvydy) <span style="color:green">*</span> third</code></pre>
+<p class="p noindent para-continued" data-line="115"><span data-line="115"></span>The strain rate tensor is incorporated into the total stress tensor in a Newtonian way, as can be seen in the following code for the <span data-line="115"></span><span class="math-inline">$xx$</span><span data-line="115"></span> component.
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-fortran lang-fortran fortran colorized" data-line="116" data-line-first="117" style="display:block"><code data-line="117">qxx(ix,iy,iz) <span style="color:green">=</span> qxx(ix,iy,iz) <span style="color:green">+</span> <span class="constant" style="color:purple">2.0</span>_num <span style="color:green">*</span> sxx <span style="color:green">*</span> rho(ix,iy,iz) <span style="color:green">*</span> visc3</code></pre>
+<p class="p noindent para-continued" data-line="119"><span data-line="119"></span>Similar calculations for the other components of <span data-line="119"></span><code class="code code1 language-fortran lang-fortran fortran colorized">q</code><span data-line="119"></span> are performed. Note the multiplication by <span data-line="119"></span><code class="code code1 language-fortran lang-fortran fortran colorized">rho</code><span data-line="119"></span> here to account for the compressiblity. In the event of an incompressible fluid being simulated, this would cancel in the momentum equation. 
+</p><h4 id="sec-use-of-viscosity-stress-tensor" class="h3" data-line="121" data-heading-depth="3" style="display:block"><span data-line="121"></span><span class="heading-before"><span class="heading-label">1.4.2</span>.&#8194;</span><span data-line="121"></span>Use of viscosity stress tensor</h4>
+<p class="p noindent" data-line="123"><span data-line="123"></span>After the calculation of the viscosity stress tensor, it is used to calculate the viscous heating term to be added to the energy using equation<span data-line="123"></span>&nbsp;<a href="#eqn-viscous-heating" class="localref" style="target-element:equation"><span class="equation-label">(2)</span></a><span data-line="123"></span>.
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-fortran lang-fortran fortran colorized" data-line="124" data-line-first="125" style="display:block"><code data-line="125">visc_heat(ix,iy,iz) <span style="color:green">=</span> <span style="color:red">&amp;</span>
+      qxy(ix,iy,iz) <span style="color:green">*</span> dvxy  <span style="color:green">+</span> qxz(ix,iy,iz) <span style="color:green">*</span> dvxz <span style="color:red">&amp;</span>
+    <span style="color:green">+</span> qyz(ix,iy,iz) <span style="color:green">*</span> dvyz  <span style="color:green">+</span> qxx(ix,iy,iz) <span style="color:green">*</span> dvxdx <span style="color:red">&amp;</span>
+    <span style="color:green">+</span> qyy(ix,iy,iz) <span style="color:green">*</span> dvydy <span style="color:green">+</span> qzz(ix,iy,iz) <span style="color:green">*</span> dvzdz
+</code></pre>
+<p class="p noindent para-continued" data-line="131"><span data-line="131"></span>Then, at a later stage, the two contributions from the viscous forces, the parallel and shear forces, are calculated as per equation<span data-line="131"></span>&nbsp;<a href="#eqn-viscous-force" class="localref" style="target-element:equation"><span class="equation-label">(1)</span></a><span data-line="131"></span>. The parallel viscous force is calculated in the <span data-line="131"></span><span class="math-inline">$x$</span><span data-line="131"></span> direction as follows, with similar calculations done for <span data-line="131"></span><span class="math-inline">$y$</span><span data-line="131"></span> and <span data-line="131"></span><span class="math-inline">$z$</span><span data-line="131"></span>. Recall that the values of <span data-line="131"></span><code class="code code1 language-fortran lang-fortran fortran colorized">q</code><span data-line="131"></span> were calculated at the cell centres, thus in order to correctly calculate the force at the cell boundaries, we must interpolate, done here using a simple spatial average.
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-fortran lang-fortran fortran colorized" data-line="132" data-line-first="133" style="display:block"><code data-line="133">w1 <span style="color:green">=</span> (qxx(ix ,iy ,iz ) <span style="color:green">+</span> qxx(ix ,iyp,iz ) <span style="color:red">&amp;</span>
+    <span style="color:green">+</span> qxx(ix ,iy ,izp) <span style="color:green">+</span> qxx(ix ,iyp,izp)) <span style="color:green">*</span> <span class="constant" style="color:purple">0.25</span>_num
+w2 <span style="color:green">=</span> (qxx(ixp,iy ,iz ) <span style="color:green">+</span> qxx(ixp,iyp,iz ) <span style="color:red">&amp;</span>
+    <span style="color:green">+</span> qxx(ixp,iy ,izp) <span style="color:green">+</span> qxx(ixp,iyp,izp)) <span style="color:green">*</span> <span class="constant" style="color:purple">0.25</span>_num
+fx <span style="color:green">=</span> fx <span style="color:green">+</span> (w2 <span style="color:green">-</span> w1) <span style="color:green">/</span> dxc(ix)</code></pre>
+<p class="p noindent para-continued" data-line="139"><span data-line="139"></span>The shear viscous forces are then calculated for each of the off-parallel directions. The contributions to the <span data-line="139"></span><span class="math-inline">$x$</span><span data-line="139"></span> direction are shown.
+</p>
+<pre class="para-block pre-fenced pre-fenced3 language-fortran lang-fortran fortran colorized" data-line="140" data-line-first="141" style="display:block"><code data-line="141">w1 <span style="color:green">=</span> (qxy(ix ,iy ,iz ) <span style="color:green">+</span> qxy(ixp,iy ,iz ) <span style="color:red">&amp;</span>
+    <span style="color:green">+</span> qxy(ix ,iy ,izp) <span style="color:green">+</span> qxy(ixp,iy ,izp)) <span style="color:green">*</span> <span class="constant" style="color:purple">0.25</span>_num
+w2 <span style="color:green">=</span> (qxy(ix ,iyp,iz ) <span style="color:green">+</span> qxy(ixp,iyp,iz ) <span style="color:red">&amp;</span>
+    <span style="color:green">+</span> qxy(ix ,iyp,izp) <span style="color:green">+</span> qxy(ixp,iyp,izp)) <span style="color:green">*</span> <span class="constant" style="color:purple">0.25</span>_num
+fx <span style="color:green">=</span> fx <span style="color:green">+</span> (w2 <span style="color:green">-</span> w1) <span style="color:green">/</span> dyc(iy)
+
+w1 <span style="color:green">=</span> (qxz(ix ,iy ,iz ) <span style="color:green">+</span> qxz(ixp,iy ,iz ) <span style="color:red">&amp;</span>
+    <span style="color:green">+</span> qxz(ix ,iyp,iz ) <span style="color:green">+</span> qxz(ixp,iyp,iz )) <span style="color:green">*</span> <span class="constant" style="color:purple">0.25</span>_num
+w2 <span style="color:green">=</span> (qxz(ix ,iy ,izp) <span style="color:green">+</span> qxz(ixp,iy ,izp) <span style="color:red">&amp;</span>
+    <span style="color:green">+</span> qxz(ix ,iyp,izp) <span style="color:green">+</span> qxz(ixp,iyp,izp)) <span style="color:green">*</span> <span class="constant" style="color:purple">0.25</span>_num
+fx <span style="color:green">=</span> fx <span style="color:green">+</span> (w2 <span style="color:green">-</span> w1) <span style="color:green">/</span> dzc(iz)</code></pre><span data-line=""></span></div>
+</body>
+
+</html>

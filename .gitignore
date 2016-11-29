@@ -1,2 +1,4 @@
 .dropbox.attr
-out
+*/out/*
+!*/out/main.html
+!*/out/main.pdf
