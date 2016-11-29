@@ -1,0 +1,34 @@
+{ 
+  "displayName": "Fortran",
+  "name": "fortran",
+  "keywords": [
+    "do"
+  ],
+  "operators": [
+    "+", "-", "*", "/", "="
+  ],
+  "keywordOperators": [],
+  "typeOperators": [],
+  "extraOperators": ["&"],
+
+  "symbols":  "[=><!~?:&|+\\-*\\/\\^%]+",
+
+  "tokenizer": {
+    "root": [
+      
+      ["[a-z_$][\\w$]*", { "cases": {"@keywords": "keyword",
+                                   "@default": "identifier" } }],
+      ["@symbols", { "cases": { "@keywordOperators": "operator.keyword",
+                              "@typeOperators": "operator.type",
+                              "@extraOperators": "operator.extra",
+                              "@operators": "operator", 
+                              "@default"  : "" } } ],
+      ["\\d*\\.\\d+([eE][\\-+]?\\d+)?[fFdD]?", "number.float"],
+      ["0[xX][0-9a-fA-F_]*[0-9a-fA-F][Ll]?", "number.hex"],
+      ["0[0-7_]*[0-7][Ll]?", "number.octal"],
+      ["0[bB][0-1_]*[0-1][Ll]?", "number.binary"],
+      ["\\d+[lL]?", "number"]
+    ]
+
+ }
+}
