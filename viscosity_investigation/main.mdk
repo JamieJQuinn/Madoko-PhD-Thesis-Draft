@@ -1,57 +1,62 @@
 Package: jamie
 Math Mode: mathjax
-Colorizer: javascript
+Colorizer: fortran
 pre,code {
   language: fortran;
 }
 .token.operator { color: green }
 .token.operator.extra { color: red }
+.token.keyword { color: blue }
 
 # Viscous Stress
 ## Introduction
-Viscous stress is a meaure of how a fluids internal frictional forces affect the flow of momentum through the fluid. The way in which the viscous stress depends on the rate of strain, that is the rate at which some deformation occurs, and the way in which this stress depends on other variables like temperature and magnetic field, is entirely goverened by the specific fluid in question. Some fluids, water being a good example, behave in a *Newtonian* fashion, where the viscous stress is linearly proportional to the rate of strain. Other fluids, such as ketchup, are examples of *shear-thinning* fluids, where the higher the rate of strain, that is the faster a deformation occurs, the less viscous the fluid behaves. There are of course many other non-Newtonian materials each with interesting properties arising from the nature of the viscous stress.
+Viscous stress is a meaure of how a fluids internal frictional forces affect the flow of momentum through the fluid. The way in which the viscous stress depends on the rate of strain, that is the rate at which some deformation occurs, and the way in which this stress depends on other variables like temperature and magnetic field, is entirely goverened by the specific fluid in question. Some fluids, water being a good example, behave in a *Newtonian* fashion, where the viscous stress is linearly proportional to the rate of strain. Other fluids, such as ketchup, are examples of *shear-thinning* fluids, where the higher the rate of strain, that is the faster a deformation occurs, the less viscous the fluid behaves. There are of course many other non-Newtonian materials each with interesting properties arising from the nature of the viscous stress and its relationship to the strain rate.
 
 ## The Viscous Stress Tensor
-The viscous stress tensor $\sigma$ is introduced into momentum balance as,
-~ Math
-\rho\left( \frac{Dv}{Dt} \right)_i
+The viscous stress tensor $\sigma$ is introduced into the momentum balance as,
+~Equation {#eqn-viscous-force}
+\rho\frac{Dv_i}{Dt}
 = \frac{\partial \sigma_{ij}}{\partial x_j},
 ~
-and into the energy balance as,
-~Math
-\rho\frac{D\varepsilon}{Dt} = \varepsilon_{ij}\sigma_{ij},
+where $\rho$ is the density and $v_i$ is the fluid velocity in the $i$-th direction.
+Similarly the tensor contributes to the energy balance in the following way,
+~Equation {#eqn-viscous-heating}
+\rho\frac{D\epsilon}{Dt} = \varepsilon_{ij}\sigma_{ij},
 ~
-where we have made use of the Einstein summation convention that repeated indices in a term indicate summation,
+where $\epsilon$ is the internal energy, $\varepsilon$ is the rate of strain tensor, and we have made use of the Einstein summation convention that repeated indices in a term indicate summation,
 ~Math
 x_{i}y_{i} \equiv \sum_{i=1}^{3} x_{i}y_{i}.
 ~
 
 ## Newtonian Fluids
-For Newtonian fluids, viscous stress $\propto$ rate of strain, so for a compressible fluid, the viscous stress tensor is given by
+For Newtonian fluids, viscous stress is directly proportional to the rate of strain so for a compressible fluid, the viscous stress tensor is given by
 ~Math
-\sigma_{ij} = 2\nu(E_{ij} - \frac{1}{3}\delta_{ij} \nabla \cdot \vec{v}),
+\sigma_{ij} = 2\nu(\varepsilon_{ij} - \frac{1}{3}\delta_{ij} \nabla \cdot \vec{v}),
 ~
-where $\sigma_{ij}$ is the $i, j$-th component of the viscous stress tensor, $\nu$ is the dynamic viscosity, $E_{ij}$ is the $i, j$-th component of the deformation tensor, $\delta_{ij}$ is the Kronecker delta, and $\vec{v}$ is the fluid velocity.
+where $\nu$ is the dynamic viscosity, and $\delta_{ij}$ is the Kronecker delta.
 
-The deformation tensor is given by
+The strain rate tensor is given by
 ~Math
-E = \frac{1}{2}\left( \frac{\partial v_i}{\partial x_{j}} + \frac{\partial v_j}{\partial x_i} \right)
+\varepsilon_{ij} = \frac{1}{2}\left( \frac{\partial v_i}{\partial x_{j}} + \frac{\partial v_j}{\partial x_i} \right).
 ~
 
-To calculate the divergence, we investigate a single component of the viscous contribution to the momentum balance,
-~Equation {#div_viscous_stress}
-\frac{\partial\sigma_{ij}}{\partial x_j} = 2\nu\frac{\partial}{\partial x_j}\left(E_{ij} - \frac{1}{3}\delta_{ij}\nabla\cdot\vec{v}\right).
+Sometimes bulk viscosity is included as an extra term $\mu_{v}\nabla \cdot \vec{v}$ in the viscous stress tensor that influences uniform compression and dilation of a fluid, however it is usually an effect even smaller than conventional viscosity and so here it is neglected (TODO: CITE SOMETHING)
+
+### Viscous Forces
+To calculate the force resulting from this form of viscosity, we calculate the $i$-th component of the divergence of the viscous stress tensor,
+~Equation {#eqn-div-viscous-stress}
+\frac{\partial\sigma_{ij}}{\partial x_j} = 2\nu\frac{\partial}{\partial x_j}\left(\varepsilon_{ij} - \frac{1}{3}\delta_{ij}\nabla\cdot\vec{v}\right).
 ~
 Differentiating each term separately, it can be shown that
 ~Math
-\frac{\partial E_{ij}}{\partial x_j} = \frac{1}{2}\left(\nabla^{2}v_i + \frac{\partial}{\partial x_i}(\nabla \cdot \vec{v})\right),
+\frac{\partial \varepsilon_{ij}}{\partial x_j} = \frac{1}{2}\left(\nabla^{2}v_i + \frac{\partial}{\partial x_i}(\nabla \cdot \vec{v})\right),
 ~
 and
 ~Math
 \frac{\partial }{\partial x_j}\delta_{ij}\nabla \cdot \vec{v} = \frac{\partial}{\partial x_i}(\nabla \cdot \vec{v}).
 ~
 
-Subbing these back into equation [#div_viscous_stress],
+Subbing these back into equation [#eqn-div-viscous-stress],
 ~Math
 \frac{\partial\sigma_{ij}}{\partial x_j} = \nu\left(\frac{1}{3}\frac{\partial}{\partial x_i}(\nabla \cdot \vec{v}) + \nabla^2 v_i \right),
 ~
@@ -62,9 +67,17 @@ that is,
 
 Physically, these two terms represent different ways in which the internal frictional forces can manifest themselves. The first term involving $\nabla(\nabla \cdot \vec{v})$ is a resistance to compression or expansion. In the incompressible limit, where $\nabla\cdot\vec{v} \rightarrow 0$ this term would disappear as expected. The second term involving $\nabla^2 \vec{v}$ looks very much like a diffusion term and in fact can represent the diffusion of momentum through the fluid through neighbouring layers of fluid.
 
-## Lare3D implementation
+### Mathematical Properties
+In a Newtonian fluid, since the viscous stress in linearly related to the strain rate, the viscous stress tensor inherits many of the properties of the strain rate tensor.
 
-In order to try and elucidate what the Lare3D code is doing in order to implement Newtonian viscosity I shall split the code up and explain the sections. All of this code occurs inside a nested for loop that runs over the indices representing the $x$, $y$ and $z$ directions, as below. It also sets some useful variables for the previous and next indices.
+The strain rate tensor in this case is easily shown to be symmetric, that is $\varepsilon_{ij} = \varepsilon_{ji}$, the symmetry being a consequence of conservation of angular momentum and the isotropy of the fluid. As a result, the Newtonian viscous stress tensor is also symmetric, reducing the number of individually varying components from $9$ down to $6$.
+
+The viscous stress tensor in the given form is also traceless, that is $\sigma_{ii} = 0$. This is to ensure uniform compression or dilation results in zero viscous behaviour. 
+
+## Lare3D implementation
+### Calculation of the viscosity stress tensor
+
+In order to try and elucidate what the Lare3D code is doing in implementing Newtonian viscosity I shall split the code up and explain the sections. All of this code occurs inside nested for loops that run over the indices representing the $x$, $y$ and $z$ directions, as below. The loop also sets some useful variables for the previous and next indices.
 ```
 DO iz = 0, nz + 1
   izm = iz - 1
@@ -77,7 +90,7 @@ DO iz = 0, nz + 1
       ixp = ix + 1
 ```
 
-The following code then finds the velocity in the $x$ direction, $dvxdx$, at the centre of a cell by extrapolating values at the boundaries.
+The following code finds the velocity in the $x$ direction, `dvxdx`, at the centre of a cell by extrapolating values at the boundaries.
 ```
 vxb  = (vx(ix ,iy ,iz ) + vx(ix ,iym,iz ) &
     +   vx(ix ,iy ,izm) + vx(ix ,iym,izm)) * 0.25_num
@@ -89,7 +102,7 @@ dvxdx = (vxb - vxbm) / dxb(ix)
 ```
 Similar code is used to find the other derivatives of $v_x$, $v_y$ and $v_z$ with respect to $x$, $y$ and $z$.
 
-The values for the strain rate tensor, respresented as `sxy` for the $x$, $y$ component, are given by the following code. Note that there are only six components due to the symmetric nature of the tensor.
+The values for the strain rate tensor, respresented as `sxy` for the $xy$ component, are given by the following code. Note that there are only six components due to the symmetric nature of the tensor.
 ```
 sxy = dvxy * 0.5_num
 sxz = dvxz * 0.5_num
@@ -99,8 +112,41 @@ syy = (2.0_num * dvydy - dvxdx - dvzdz) * third
 szz = (2.0_num * dvzdz - dvxdx - dvydy) * third
 ```
 
-In the version of the code being used, the shock viscosity tensor is calculated at this point, then the strain rate tensor is incorporated in a Newtonian way, as can be seen in the following code for the $xx$ component of $\sigma$.
+The strain rate tensor is incorporated into the total stress tensor in a Newtonian way, as can be seen in the following code for the $xx$ component.
 ```
 qxx(ix,iy,iz) = qxx(ix,iy,iz) + 2.0_num * sxx * rho(ix,iy,iz) * visc3
 ```
-Similar values for the $5$ other components of `q` are calculated. Note the multiplication by `rho` here to account for the compressiblity. In the event of an incompressible fluid being simulated, this will cancel in the momentum equation. 
+Similar calculations for the other components of `q` are performed. Note the multiplication by `rho` here to account for the compressiblity. In the event of an incompressible fluid being simulated, this would cancel in the momentum equation. 
+
+### Use of viscosity stress tensor
+
+After the calculation of the viscosity stress tensor, it is used to calculate the viscous heating term to be added to the energy using equation [#eqn-viscous-heating].
+```
+visc_heat(ix,iy,iz) = &
+      qxy(ix,iy,iz) * dvxy  + qxz(ix,iy,iz) * dvxz &
+    + qyz(ix,iy,iz) * dvyz  + qxx(ix,iy,iz) * dvxdx &
+    + qyy(ix,iy,iz) * dvydy + qzz(ix,iy,iz) * dvzdz
+
+```
+Then, at a later stage, the two contributions from the viscous forces, the parallel and shear forces, are calculated as per equation [#eqn-viscous-force]. The parallel viscous force is calculated in the $x$ direction as follows, with similar calculations done for $y$ and $z$. Recall that the values of `q` were calculated at the cell centres, thus in order to correctly calculate the force at the cell boundaries, we must interpolate, done here using a simple spatial average.
+```
+w1 = (qxx(ix ,iy ,iz ) + qxx(ix ,iyp,iz ) &
+    + qxx(ix ,iy ,izp) + qxx(ix ,iyp,izp)) * 0.25_num
+w2 = (qxx(ixp,iy ,iz ) + qxx(ixp,iyp,iz ) &
+    + qxx(ixp,iy ,izp) + qxx(ixp,iyp,izp)) * 0.25_num
+fx = fx + (w2 - w1) / dxc(ix)
+```
+The shear viscous forces are then calculated for each of the off-parallel directions. The contributions to the $x$ direction are shown.
+```
+w1 = (qxy(ix ,iy ,iz ) + qxy(ixp,iy ,iz ) &
+    + qxy(ix ,iy ,izp) + qxy(ixp,iy ,izp)) * 0.25_num
+w2 = (qxy(ix ,iyp,iz ) + qxy(ixp,iyp,iz ) &
+    + qxy(ix ,iyp,izp) + qxy(ixp,iyp,izp)) * 0.25_num
+fx = fx + (w2 - w1) / dyc(iy)
+
+w1 = (qxz(ix ,iy ,iz ) + qxz(ixp,iy ,iz ) &
+    + qxz(ix ,iyp,iz ) + qxz(ixp,iyp,iz )) * 0.25_num
+w2 = (qxz(ix ,iy ,izp) + qxz(ixp,iy ,izp) &
+    + qxz(ix ,iyp,izp) + qxz(ixp,iyp,izp)) * 0.25_num
+fx = fx + (w2 - w1) / dzc(iz)
+```
