@@ -1,5 +1,9 @@
 # Jamie Quinn's Thesis
 
+**ARCHIVED 2024-04-08**
+
+> This was a working draft of my PhD Thesis for a short while. I leave it here as an example of a Madoko project, of which there are few; it never seemed to take off...
+
 ## Madoko
 
 This thesis is written in [madoko](https://www.madoko.net/), a version of markdown specifically designed for academics writing papers including a lot of code and maths. It has various advantages over other scholarly markdown implementations such as
